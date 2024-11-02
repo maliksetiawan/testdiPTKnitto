@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === '123' && password === '123') {
+  if (username === 'admin' && password === 'admin') {
     return res.json({ token: '46854889-ee359d90b7fed1ae23b4d9969' });
   }
   return res.status(401).json({ message: 'Unauthorized' });

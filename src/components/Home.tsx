@@ -99,9 +99,10 @@ const Home = () => {
         onEndReachedThreshold={2}
       />
       <TouchableOpacity onPress={goToBookmarks} style={styles.goToBookmarks}>
-        <Icon name="book" size={24} color="blue" />
-        <Text>INI KE BOOKMARKNYA</Text>
-      </TouchableOpacity>
+    <Icon name="bookmark" size={24} color="blue" />
+    <Text style={styles.bookmarkText}>INI KE BOOKMARKNYA</Text>
+</TouchableOpacity>
+
       {loading && <ActivityIndicator style={styles.loader} />}
     </SafeAreaView>
   );
@@ -149,7 +150,19 @@ const styles = StyleSheet.create({
   goToBookmarks: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 10,
+    justifyContent: 'center',
+    padding: 10,
+    borderWidth: 1,
+    borderColor: 'blue',
+    borderRadius: 8,
+    marginVertical: 10,
+    backgroundColor: '#f0f8ff', 
+  },
+  bookmarkText: {
+    marginLeft: 8, 
+    fontSize: 16,
+    color: 'blue',
+    fontWeight: 'bold',
   },
   loader: {
     marginVertical: 20,

@@ -5,6 +5,8 @@ import { useDispatch } from 'react-redux';
 import { login } from '../store/userSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -25,7 +27,9 @@ const Login = ({ navigation }) => {
   };
 
   return (
+    
     <View style={styles.container}>
+        
       <TextInput
         style={styles.input}
         placeholder="Username"

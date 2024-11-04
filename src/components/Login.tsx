@@ -19,7 +19,6 @@ const Login = ({ navigation }) => {
       dispatch(login(token));
       await AsyncStorage.setItem('token', token);
       
-      // Tampilkan alert ketika login berhasil
       Alert.alert('Login Successful', 'You have successfully logged in!');
       
       navigation.navigate('Home'); 

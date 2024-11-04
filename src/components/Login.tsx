@@ -5,8 +5,6 @@ import { useDispatch } from 'react-redux';
 import { login } from '../store/userSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -15,11 +13,15 @@ const Login = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-        const response = await axios.post('http://10.0.2.2:3000/login', { username, password });
+      const response = await axios.post('http://10.0.2.2:3000/login', { username, password });
       const { token } = response.data;
 
       dispatch(login(token));
       await AsyncStorage.setItem('token', token);
+      
+      // Tampilkan alert ketika login berhasil
+      Alert.alert('Login Successful', 'You have successfully logged in!');
+      
       navigation.navigate('Home'); 
     } catch (error) {
       Alert.alert('Login failed', 'Invalid username or password');
@@ -27,9 +29,7 @@ const Login = ({ navigation }) => {
   };
 
   return (
-    
     <View style={styles.container}>
-        
       <TextInput
         style={styles.input}
         placeholder="Username"
